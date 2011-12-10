@@ -1,7 +1,9 @@
 Lizenzbestimmungen:
 
 Urheberrecht ist bei:
-Udo Besenreuther, Heroldstatt, Deutschland
+Udo@Besenreuther.de, Heroldstatt, Deutschland
+
+Bei Weitergabe und Einsatz erbittet der Author eine Infomail über den jeweiligen Einsatz. 
 
 Der USB-Automat steht unter der CC-Lizenz: by-nc-sa
 
@@ -22,3 +24,8 @@ http://de.creativecommons.org/was-ist-cc/
 
 Informationsfilm:
 http://blog.wikimedia.de/2011/07/27/wissenswert-gewinner-veroffentlichen-motivationsfilm-fur-creative-commons/
+
+Das Programm RemoveDrive.exe kommt von 
+http://www.uwe-sieber.de/drivetools.html
+
+
