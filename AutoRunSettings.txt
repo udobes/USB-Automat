@@ -1,0 +1,92 @@
+
+
+AutoRun Settings V1.4
+
+
+Easy access to basic registry settings for AutoRun under Windows 2000, XP, Vista, Windows 7 and
+the Windows Servers.
+
+Windows 9x/ME is untested.
+
+Freeware
+
+VB6 runtime required.
+
+
+AutoRun can be disabled depending on the drive type and depending on the drive letter
+by Explorer Policies.
+
+These values are
+- NoDriveAutoRun
+and
+- NoDriveTypeAutoRun
+
+under
+SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+
+They are valid under HKEY_LOCAL_MACHINE and under HKEY_CURRENT_USER. If a value exist
+under HKEY_LOCAL_MACHINE then the same value under HKEY_CURRENT_USER is ignored.
+Microsoft TweakUI sets the values under HKEY_CURRENT_USER only and completely ignores 
+HKEY_LOCAL_MACHINE. Furthermore TweakUI cannot make settings for hard drives and it
+_enables_ AutoRun for network drives which opens a security hole.
+
+NoDriveAutoRun
+http://www.microsoft.com/technet/prodtechnol/windows2000serv/reskit/regentry/58886.mspx
+
+By default (the value doesn't exist) AutoRun is enabled for all drive letters.
+
+
+NoDriveTypeAutoRun
+http://www.microsoft.com/technet/prodtechnol/windows2000serv/reskit/regentry/93502.mspx
+
+By default (the value doesn't exist) AutoRun is enabled for CD/DVD and unknown drives.
+Under XP it is enabled by default for removable drives too.
+
+This tool inverts these inverse settings, so, to enable something set a check mark.
+
+
+
+For CD/DVD drives the 'auto insert notification' aka 'Media Change Notification (MCN)' must
+be active to make AutoRun possible and is required to make Windows see disk changes. 
+It's no risk to keep this enabled.
+This is controlled by the missleading named value "AutoRun" under
+HKLM\SYSTEM\CurrentControlSet\Services\Cdrom
+http://www.microsoft.com/technet/prodtechnol/windows2000serv/reskit/regentry/30300.mspx
+
+To take effect a reboot is required.
+
+
+
+The settings had no effect on manual actions, as "Double Click" and "Context Menu".
+There is an update for all Windows version since Windows 2000 which let apply the well
+known autorun settings to manual actions too, see here:
+http://support.microsoft.com/kb/953252
+After installing the update Windows looks at the HonorAutorunSetting value and
+AutoRunSettings enables changing the HonorAutoRunSetting setting.
+
+
+
+Another way to get the same effect is to redirect the reading to any autorun.inf file
+into the Windows Registry. This is done by checking "block autorun.inf".
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\Autorun.inf
+The 'default' value is set to the value "@SYS:DoesNotExist"
+
+Read more here:
+http://www.us-cert.gov/cas/techalerts/TA09-020A.html
+
+
+
+If AutoRun is deactivated then there may be no more need for the service "Shell Hardware
+Detection" beeing running, it can be deactivated then.
+But the "Shell Hardware Detection" serivce is required for WIA (Windows Image Acquisition)
+to work, so if digital cameras or scanners are using WIA keep this service running.
+
+
+
+Uwe Sieber
+
+December 2010
+
+
+
